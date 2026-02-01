@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MangaVerse</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="https://files.catbox.moe/h1mhhk.jpg" alt="logo">
+      <div>MangaVerse</div>
+    </div>
+    <div class="nav-actions">
+      <button id="loginBtn">Login</button>
+      <button id="logoutBtn" style="display:none;">Logout</button>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Discover & Read Manga</h1>
+    <p>Community-driven manga library. Upload, share and read.</p>
+    <button class="primary" id="startBtn">Start Reading</button>
+  </header>
+
+  <section class="upload-section">
+    <h3>Upload Manga</h3>
+    <button id="openUploadModal" class="primary">Upload Manga</button>
+    <p class="small">Login required to upload. Images hosted on ImgBB. Metadata stored locally in your browser.</p>
+  </section>
+
+  <section class="list-section">
+    <h3>
+      <img src="https://files.catbox.moe/pfidvu.png" alt="sticker" class="sticker">
+      Available Manga
+    </h3>
+    <input type="text" id="searchBar" placeholder="Search Manga...">
+    <div id="listContainer"></div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeLogin">&times;</span>
+      <h3>Login with Google</h3>
+      <button class="primary" id="googleLoginBtn">Sign in with Google</button>
+      <p class="small">Demo uses Firebase Auth. No backend required for auth in this demo.</p>
+    </div>
+  </div>
+
+  <!-- Upload Modal -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeUpload">&times;</span>
+      <h3>Upload Manga</h3>
+
+      <label><strong>Thumbnail</strong></label>
+      <input type="file" id="thumbnail" accept="image/*">
+
+      <label><strong>Name</strong></label>
+      <input type="text" id="mangaName" placeholder="Manga Name">
+
+      <label><strong>Description</strong></label>
+      <textarea id="mangaDesc" rows="3" placeholder="Description (optional)"></textarea>
+
+      <label><strong>Tags</strong></label>
+      <input type="text" id="mangaTags" placeholder="comma separated tags">
+
+      <label><strong>Manga PNGs</strong></label>
+      <div id="pngInputs"></div>
+      <p class="small">Click Add one more png to add more page inputs. You can add multiple files per input.</p>
+
+      <div class="upload-actions">
+        <button id="submitManga" class="primary">Upload</button>
+        <button id="cancelUpload">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeDetail">&times;</span>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+      </html>
